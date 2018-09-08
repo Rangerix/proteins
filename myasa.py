@@ -1,3 +1,8 @@
+#this is to calculate accessible surface area for a pdb file
+#this file takes a file with list of pdbids and an output filename
+#the pdb files must be downloaded in the same directory
+#output foemat: pdbid area
+
 from __future__ import print_function
 import __main__
 __main__.pymol_argv = ['pymol','-q']
