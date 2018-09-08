@@ -20,7 +20,6 @@ with open(infilename) as myfile:
 
 for pdbid in pdbidlist:
 	print(pdbid)
-	pymol.cmd.delete("all")
 	pymol.cmd.load(pdbid+".pdb")
 
 	# get hydrogens onto everything (NOTE: must have valid valences on e.g. small organic molecules)
@@ -61,5 +60,6 @@ for pdbid in pdbidlist:
 	with open(outfilename,"a") as myfile:
 		myfile.write(pdbid+" "+str(asa)+"\n")
 	print("\n\n")
+	pymol.cmd.delete("all")
 
 pymol.cmd.quit()
