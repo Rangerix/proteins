@@ -16,7 +16,7 @@ make vol
 cd ..
 
 #Calculate Solvent Excluded Volume
-bin/Volume.exe -i $1-noions.xyzr -p 1.5 -g 0.5
+bin/Volume.exe -i $1-noions.xyzr -p 3 -g 0.5
 
 #Same with output to PDB (view with rasmol)
 #bin/Volume.exe -i $1-noions.xyzr -p 1.5 -g 0.5 -o $1-excluded.pdb

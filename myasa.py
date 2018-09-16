@@ -30,8 +30,8 @@ for pdbid in pdbidlist:
 
 	# use solvent-accessible surface with high sampling density
 	pymol.cmd.set("dot_solvent", 1)
-	pymol.cmd.set("dot_density", 3)
-
+	pymol.cmd.set("dot_density", 4)
+	pymol.cmd.set("solvent_radius",1.5)
 	# measure the components individually storing the results for later
 	sum=0.0
 	chn_list=[]
