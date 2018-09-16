@@ -1,0 +1,7 @@
+g++ -O3 -w -march=native -mtune=native -o Volume.exe utils-main.o utils-output.o utils-mrc.o volume.cpp
+chmod 755 Volume.exe
+rm -r ../bin
+mkdir ../bin
+mv -v Volume.exe ../bin/
+'Volume.exe' -> '../bin/Volume.exe'
+1.5	0.5	81145.25		22839.7	4384	2HHB-noions.xyzr	probe,grid,volume,surf_area,num_atoms,file

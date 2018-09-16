@@ -1,0 +1,27 @@
+
+#Remove Hetero Atom (Water, Salt, etc)
+egrep "^ATOM  " $1.pdb > $1-noions.pdb
+
+#Convert PDB to XYZR
+cd xyzr
+bash pdb_to_xyzr ../$1-noions.pdb > ../$1-noions.xyzr
+cd ..
+#WARNING the atmtypenumbers file needs to be in the current directory when running pdb_to_xyzr
+
+
+
+#Compile Program
+cd src
+make vol
+cd ..
+
+#Calculate Solvent Excluded Volume
+bin/Volume.exe -i $1-noions.xyzr -p 1.5 -g 0.5
+
+#Same with output to PDB (view with rasmol)
+#bin/Volume.exe -i $1-noions.xyzr -p 1.5 -g 0.5 -o $1-excluded.pdb
+
+#Same with output to MRC 
+#bin/Volume.exe -i $1-noions.xyzr -p 1.5 -g 0.5 -m $1-excluded.mrc
+#View in UCSF Chimera: http://www.cgl.ucsf.edu/chimera/
+#chimera $1-excluded.mrc

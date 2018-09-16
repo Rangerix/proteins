@@ -1,0 +1,1 @@
+tail -n 1 tempvol | awk '{print $3 " "  $4 " " $6}'|cut -d '-' -f 1
