@@ -2,17 +2,20 @@ from Bio.PDB.PDBParser import PDBParser
 from Bio import PDB                    
 import warnings
 from Bio import BiopythonWarning
+import sys
+
+pdbid=sys.argv[1]
 warnings.simplefilter('ignore', BiopythonWarning)                                   
 parser = PDBParser(PERMISSIVE=1)
-structure_id = "1fat"
-filename = "1fat.pdb"
+structure_id = pdbid
+filename = pdbid+".pdb"
 structure = parser.get_structure(structure_id, filename)
 
-
+'''
 model=structure[0]
 chain=model["A"]
 print(len(model.get_list()))
-
+'''
 
 print(structure.get_full_id())
 for chain in structure.get_chains():
@@ -48,7 +51,7 @@ for res in residues:
 	if hetfield[0]=="H":
 		print(res_id)
 
-
+'''
 #print all coordinates od CA with B factor > 50
 for model in structure.get_list():
 	for chain in model.get_list():
@@ -57,3 +60,5 @@ for model in structure.get_list():
 				ca=residue["CA"]
 				if ca.get_bfactor()>50.0 :
 					print(chain,residue.get_full_id()[3][1],ca.get_coord())
+
+'''
