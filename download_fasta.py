@@ -1,3 +1,4 @@
+#downloads fasta file, given ID as command line argument
 #https://www.rcsb.org/pdb/download/downloadFastaFiles.do?structureIdList=1FAT&compressionType=uncompressed
 import urllib.request
 import sys
