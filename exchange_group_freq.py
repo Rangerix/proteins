@@ -55,7 +55,6 @@ def convert_exchange(tmpstr):
 	return tmpstr
 
 
-
 outfile=sys.argv[2]
 fastaid=sys.argv[1]
 alphabet=["AA","BA","CA","DA","EA","FA","AB","BB","CB","DB","EB","FB","AC","BC","CC","DC","EC","FC","AD","BD","CD","DD","ED"
