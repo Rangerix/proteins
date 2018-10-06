@@ -1,0 +1,10 @@
+cytochromb5/class2.txt   
+cytochromeb/class1.txt   
+cytochromec/class4.txt  
+globin/class7.txt         
+plastocyanin/class9.txt
+cytochromeb6/class3.txt  
+cytochromec6/class5.txt  
+ferrodoxin/class6.txt   
+photosystemII/class8.txt
+triosephosphate/class10.txt
