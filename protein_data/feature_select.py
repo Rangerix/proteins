@@ -12,11 +12,18 @@ dataframe=pandas.read_csv(infile)
 (a,b)= numpy.shape(dataframe)
 print (a)
 print (b)
-X = dataframe.values[:,0:b-1]
-y = dataframe.values[:,b-1]
+X = dataframe.iloc[:,:-1]
+y = dataframe.iloc[:,-1]
 
 for loopval in range(5,b-1,5):
-	X_new = SelectKBest(mutual_info_classif, k=loopval).fit_transform(X, y)
+	selector = SelectKBest(mutual_info_classif, k=loopval)
+	selector.fit(X, y)
+	X_new=selector.transform(X)
+	print(X_new.shape)
+	X.columns[selector.get_support(indices=True)]
+	vector_names = list(X.columns[selector.get_support(indices=True)])
+	print(vector_names)
+	
 	X_train, X_test, y_train, y_test = train_test_split(X_new, y,stratify=y ,test_size=0.1)
 
 
@@ -24,3 +31,4 @@ for loopval in range(5,b-1,5):
 	clf.fit(X_train,y_train)
 	val=clf.score(X_test,y_test)
 	print(loopval,val)
+	
