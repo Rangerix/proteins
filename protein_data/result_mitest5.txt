@@ -1,0 +1,13 @@
+surface_area DD G L DE volume V A DB N ED BD K EE FD R I C BB BE S E T FE DF EB Q BF W P F EF H spherecity D FF CD Y FB M EC DC kurtosis CE FC BC CB skewness CF CC BA DA AF AE AA CA EA FA AB AC AD 
+5 1.0
+10 0.9583333333333334
+15 1.0
+20 1.0
+25 1.0
+30 1.0
+35 1.0
+40 1.0
+45 1.0
+50 1.0
+55 1.0
+60 1.0
