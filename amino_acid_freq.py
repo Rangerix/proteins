@@ -18,6 +18,13 @@ def getfreq (str):
 
 outfile=sys.argv[2]
 fastaid=sys.argv[1]
+alphabet="ACDEFGHIKLMNPQRSTVWY"
+with open(outfile,"a") as f:
+	f.write("id"+' ')
+	for i in alphabet:
+		f.write(i+' ')
+	f.write('\n')
+
 dict2=[0 for _ in range(26)]
 for seq_record in SeqIO.parse(fastaid+".fasta", "fasta"):
     print(seq_record.id)
@@ -34,6 +41,6 @@ for i in alphabet:
 	indices.append(ord(i)-ord('A'))
 res=(dict2[indices])
 print(res)
-with open(outfile,"w") as f:
+with open(outfile,"a") as f:
 	f.write(fastaid+' ')
 	numpy.savetxt(f,res.reshape(1,res.shape[0]),fmt="%d",delimiter='\t')

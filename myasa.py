@@ -23,7 +23,7 @@ for pdbid in pdbidlist:
 	pymol.cmd.load(pdbid+".pdb")
 
 	# get hydrogens onto everything (NOTE: must have valid valences on e.g. small organic molecules)
-	pymol.cmd.h_add
+	#pymol.cmd.h_add
 
 	# make sure all atoms within an object occlude one another
 	pymol.cmd.flag ("ignore", "none")
@@ -33,32 +33,31 @@ for pdbid in pdbidlist:
 	pymol.cmd.set("dot_density", 4)
 	pymol.cmd.set("solvent_radius",1.5)
 	# measure the components individually storing the results for later
-	sum=0.0
+	total=0.0
 	chn_list=[]
 	chn_list=pymol.cmd.get_chains()
 	#print chn_list
 	overall= '+'.join(chn_list)
 	for i in chn_list:
 		val=pdbid.upper()+" and chain "+i
-		print(val,end=' ')
+		#print(val,end=' ')
 		name="alpha"+i
 		pymol.cmd.create(name,val)
 		tmp_area=pymol.cmd.get_area(name)
-		print (tmp_area)
-		sum=sum+tmp_area
+		#print (tmp_area)
+		total=total+tmp_area
 
-	#print (sum)
 
 	val=pdbid.upper()+" and chain "+ overall
 	pymol.cmd.create("alpha",val)
 	tmp_area=pymol.cmd.get_area("alpha")
 	#print (tmp_area)
 
-	asa=(sum-tmp_area)
-	print (asa)
+	asa=total-tmp_area
+	#print (pdbid,total,tmp_area,asa)
 
 	with open(outfilename,"a") as myfile:
-		myfile.write(pdbid+" "+str(asa)+"\n")
+		myfile.write(pdbid+" "+str(asa)+" "+str(total)+" "+str(tmp_area)+"\n")
 	print("\n\n")
 	pymol.cmd.delete("all")
 

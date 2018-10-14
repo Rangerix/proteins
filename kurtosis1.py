@@ -52,7 +52,7 @@ for pdbid in pdbidlist:
 	#idea 1.2: (xi - meanx)^3+(yi - meany)^3+(zi - meanz)^3/sdx+sdy+sdz
 
 	#idea 2: measure skewness for all CA atoms present
-	'''
+	
 	xvalues=[]
 	yvalues=[]
 	zvalues=[]
@@ -72,4 +72,4 @@ for pdbid in pdbidlist:
 	zskew=kurtosis(zvalues)
 	avg=(xskew+yskew+zskew)/3
 	print("all put together : ",avg)
-	'''
+	
