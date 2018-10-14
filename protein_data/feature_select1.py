@@ -27,12 +27,12 @@ colname=X.columns[ranking]
 for i in colname:
 	print(i,end=' ')
 print()
-for loopval in range(5,12,5):
+for loopval in range(5,b-1,5):
 	temp=ranking[0:loopval]
 	#print(temp)
 	X_new=X.iloc[:,temp]
 	
-	cross=10
+	cross=20
 	maxacc=0
 	for _ in range(0,cross):
 		test_size=(1/cross)
@@ -48,9 +48,18 @@ for loopval in range(5,12,5):
 			savetestX=X_test
 			savetestY=y_test
 	print(loopval,maxacc)
-	print(savetrainX)
-	print(savetrainY)
-	print(savetestX)
-	print(savetestY)
-		
+	#print(savetrainX,savetrainY)
+	tmp=[savetrainX ,savetrainY]
+	result=pandas.concat(tmp,axis=1)
+	#print(result)
+	outfile='train_'+str(loopval)+'_'+str(cross)+'.csv';
+	result.to_csv(outfile,index=False)
+	#print(savetrainY)
+	#print(savetestX)
+	#print(savetestY)
+	tmp=[savetestX ,savetestY]
+	result=pandas.concat(tmp,axis=1)
+	#print(result)
+	outfile='test_'+str(loopval)+'_'+str(cross)+'.csv';
+	result.to_csv(outfile,index=False)
 	
